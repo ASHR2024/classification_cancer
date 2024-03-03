@@ -13,27 +13,18 @@ email: angshregina@gmail.com
 
 2. Folder Structure
   
-    \- .github    
-  &nbsp;&nbsp;&nbsp;&nbsp; \- workflows\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | github-actions.yml\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .DS_Store\
-  \- .ipynb_checkpoints\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  eda-checkpoint.ipynb\
-  \- images\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aiap14_mlp_pipeline_flow.png\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aiap14_mlp_pipeline_summary_example.png\
-  \- src\
-  &nbsp;&nbsp;&nbsp;&nbsp;\- *__pycache*__\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| preprocessor.cpython-310.pyc\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mlp_pipeline.py\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; preprocessor.py\
-  &nbsp;&nbsp;DS_Store\
-  &nbsp;&nbsp;.gitignore\
+    \- .github/workflows\
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;github-actions.yml\
+  &nbsp;- src\
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _pycache\
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; func.cpython-310.pyc\
+&nbsp;&nbsp;&nbsp;&nbsp;app_cancer.py\
+  &nbsp;&nbsp;&nbsp;&nbsp;func.py\
+  &nbsp;.DS_Store\
+    &nbsp;&nbsp;EDA.ipynb\
   &nbsp;&nbsp;README.md\
-  &nbsp;&nbsp;eda.ipynb\
   &nbsp;&nbsp;requirements.txt\
-  &nbsp;&nbsp;run.sh\
-  &nbsp;&nbsp;sample_output_log.txt\
+  &nbsp;&nbsp;run.sh
 
 3. Instruction
 
@@ -58,35 +49,35 @@ email: angshregina@gmail.com
 
 4. Project Pipeline Flow\
     &nbsp;&nbsp;&nbsp;&nbsp;4.1 Data Retrieval\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Data source is imported using SQLite using the relative path 'data/lung_cancer.db'.
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Data source is imported using SQLite using &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the relative path 'data/lung_cancer.db'.\
     &nbsp;&nbsp;&nbsp;&nbsp;4.2 Data Preprocessing\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Handle missing values, inconsistent labels and distribution of the attributes.   
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Handle missing values, inconsistent labels &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and distribution of the attributes.   
     &nbsp;&nbsp;&nbsp;&nbsp;4.3 Feature Engineering\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Perform one-hot encoding on categorical values, create new features from existing ones to provide additional predictive power.\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Perform one-hot encoding on categorical &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values, create new features from existing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ones to provide additional predictive power.\
     &nbsp;&nbsp;&nbsp;&nbsp;4.4 Data Splitting\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Split the dataset into train and test set. The train set is used to train the models and the test set is used to assess the models' performance on unseen data. \
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Split the dataset into train and test set. The &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;train set is used to train the models and the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test set is used to assess the models' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;performance on unseen data. \
     &nbsp;&nbsp;&nbsp;&nbsp;4.5 Model Selection\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Compare the performance of all the models and use evaluation metrics (accuracy, precision, recall, F1-score) to select the best model.\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Compare the performance of all the models &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and use evaluation metrics (accuracy, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precision, recall, F1-score) to select the best &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model.\
     &nbsp;&nbsp;&nbsp;&nbsp;4.6 Hyperparameter Tuning\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RandomizedSearchCV is used to search for the best hyperparameters for the chosen model (best base model).\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RandomizedSearchCV is used to search for &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the best hyperparameters for the chosen &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model (best base model).\
     &nbsp;&nbsp;&nbsp;&nbsp;4.7 Model Selection and Final Evaluation\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Assess the final selected model using the best hyperparameters obtained from the previous step to first train the model followed by testing it with test set.\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Assess the final selected model using the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;best hyperparameters obtained from the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous step to first train the model &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;followed by testing it with test set.\
     &nbsp;&nbsp;&nbsp;&nbsp;4.8 Documentation and Reporting\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Explanation and justification provided on each step of the process described above.
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Explanation and justification provided on &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;each step of the process described above.
 
 
 5. Overview of key findings\
     &nbsp;&nbsp;&nbsp;&nbsp;5.1 EDA and key findings\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Missing values found in "COPD History" and "Taken Bronchodilators"\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Missing values found in "COPD History" and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Taken Bronchodilators"\
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Negative values in Age\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Gender values are not consistent with one observation having "NAN" as value
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Not all independent variables are equally distributed although the dependent variable (Lung Cancer Occurence) has an acceptable distribution\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Irrelevant features to be excluded: ID, Last Weight, Current Weight, Start Smoking, Stop Smoking, Dominant Hand
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Gender values are not consistent with one &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;observation having "NAN" as value\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Not all independent variables are equally &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distributed although the dependent variable &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Lung Cancer Occurence) has an acceptable &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distribution\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Irrelevant features to be excluded: ID, Last &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weight, Current Weight, Start Smoking, Stop &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Smoking, Dominant Hand
 
     &nbsp;&nbsp;&nbsp;&nbsp;5.2 Feature Engineering\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Create a new feature "Avg Weight" to replace "Last Weight" and "Current Weight" as the variance in the weight difference is rather constant.\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Two new features are created to replace "Start Smoking" year and "Stop Smoking" year as count of years with respect to current year (2024).\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Perfom one-hot encoding to the categorical features: 'Gender', 'COPD History','Genetic Markers','Air Pollution Exposure','Taken Bronchodilators', 'Frequency of Tiredness' and then reduce each feature by one column
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Create a new feature "Avg Weight" to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replace "Last Weight" and "Current Weight" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as the variance in the weight difference is &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rather constant.\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Two new features are created to replace &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Start Smoking" year and "Stop Smoking" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;year as count of years with respect to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current year (2024).\
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Perfom one-hot encoding to the categorical &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features: 'Gender', 'COPD History', 'Genetic &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Markers', 'Air Pollution Exposure', 'Taken &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bronchodilators', 'Frequency of Tiredness' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and then reduce each feature by one column
 
 6. Features that are processed
     Feature | Description | Processed
@@ -100,11 +91,11 @@ email: angshregina@gmail.com
   
 7. Choice of Models
 
-    Logistic Regression (LR) - assumes a linear relationship between the features and log-odds of the target variable. Well suited for binary classification problems. It also assumes observations are independent of each other.\
+    Logistic Regression (LR) - assumes a linear relationship between the features and log-odds of the target variable. Well suited for binary classification problems. It also assumes observations are independent of each other.
 
-    Gaussian Naive Bayes (GNB) -  a probabilisitc classification algorithm that assumes that features are continuous and independent of each other, which may not be suitable for this dataset but it works well with high-dimensional data so it is worth a try.\
+    Gaussian Naive Bayes (GNB) -  a probabilisitc classification algorithm that assumes that features are continuous and independent of each other, which may not be suitable for this dataset but it works well with high-dimensional data so it is worth a try.
 
-    Support Vector Classifier (SVC) - can handle both linear and non-linear decision boundaries using different kernel functions (e.g., linear, polynomial, radial basis function). Does not make strong assumptions about the underlying data distribution and it works well with small to medium-sized datasets.\
+    Support Vector Classifier (SVC) - can handle both linear and non-linear decision boundaries using different kernel functions (e.g., linear, polynomial, radial basis function). Does not make strong assumptions about the underlying data distribution and it works well with small to medium-sized datasets.
 
     Decision Tree Classifier (DT) - is a non-parametric algorithm (does not require that data follow a normal distribution). Can handle both numerical and categorical data.
 
