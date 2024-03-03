@@ -49,37 +49,43 @@ email: angshregina@gmail.com
 
 4. Project Pipeline Flow
 
-    &nbsp;&nbsp;&nbsp;&nbsp;4.1 Data Retrieval\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Data source is imported using SQLite using the relative path 'data/lung_cancer.db'.\
-    &nbsp;&nbsp;&nbsp;&nbsp;4.2 Data Preprocessing\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Handle missing values, inconsistent labels and distribution of the attributes.   
-    &nbsp;&nbsp;&nbsp;&nbsp;4.3 Feature Engineering\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Perform one-hot encoding on categorical values, create new features from existing ones to provide additional predictive power.\
-    &nbsp;&nbsp;&nbsp;&nbsp;4.4 Data Splitting\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Split the dataset into train and test set. The train set is used to train the models and the test set is used to assess the models' performance on unseen data. \
-    &nbsp;&nbsp;&nbsp;&nbsp;4.5 Model Selection\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Compare the performance of all the models and use evaluation metrics (accuracy, precision, recall, F1-score) to select the best model.\
-    &nbsp;&nbsp;&nbsp;&nbsp;4.6 Hyperparameter Tuning\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RandomizedSearchCV is used to search for the best hyperparameters for the chosen model (best base model).\
-    &nbsp;&nbsp;&nbsp;&nbsp;4.7 Model Selection and Final Evaluation\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Assess the final selected model using the best hyperparameters obtained from the previous step to first train the model followed by testing it with test set.\
-    &nbsp;&nbsp;&nbsp;&nbsp;4.8 Documentation and Reporting\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Explanation and justification provided on each step of the process described above.
-
+    4.1 Data Retrieval
+    - Data source is imported using SQLite using the relative path 'data/lung_cancer.db'.
+    
+    4.2 Data Preprocessing
+    - Handle missing values, inconsistent labels and distribution of the attributes.   
+    
+    4.3 Feature Engineering
+    - Perform one-hot encoding on categorical values, create new features from existing ones to provide additional predictive power.
+    
+    4.4 Data Splitting
+    - Split the dataset into train and test set. The train set is used to train the models and the test set is used to assess the models' performance on unseen data. 
+    
+    4.5 Model Selection
+    - Compare the performance of all the models and use evaluation metrics (accuracy, precision, recall, F1-score) to select the best model.
+    
+    4.6 Hyperparameter Tuning
+    - RandomizedSearchCV is used to search for the best hyperparameters for the chosen model (best base model).
+    
+    4.7 Model Selection and Final Evaluation
+    - Assess the final selected model using the best hyperparameters obtained from the previous step to first train the model followed by testing it with test set.
+    
+    4.8 Documentation and Reporting
+    - Explanation and justification provided on each step of the process described above.
 
 5. Overview of key findings
 
-    &nbsp;&nbsp;&nbsp;&nbsp;5.1 EDA and key findings\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Missing values found in "COPD History" and "Taken Bronchodilators"\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Negative values in Age\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Gender values are not consistent with one observation having "NAN" as value\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Not all independent variables are equally distributed although the dependent variable (Lung Cancer Occurence) has an acceptable distribution\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Irrelevant features to be excluded: ID, Last Weight, Current Weight, Start Smoking, Stop Smoking, Dominant Hand
+    5.1 EDA and key findings
+    - Missing values found in "COPD History" and "Taken Bronchodilators"
+    - Negative values in Age
+    - Gender values are not consistent with one observation having "NAN" as value
+    - Not all independent variables are equally distributed although the dependent variable (Lung Cancer Occurence) has an acceptable distribution
+    - Irrelevant features to be excluded: ID, Last Weight, Current Weight, Start Smoking, Stop Smoking, Dominant Hand
 
-    &nbsp;&nbsp;&nbsp;&nbsp;5.2 Feature Engineering\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Create a new feature "Avg Weight" to replace "Last Weight" and "Current Weight" as the variance in the weight difference is rather constant.\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Two new features are created to replace "Start Smoking" year and "Stop Smoking" year as count of years with respect to current year (2024).\
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Perfom one-hot encoding to the categorical features: 'Gender', 'COPD History', 'Genetic Markers', 'Air Pollution Exposure', 'Taken Bronchodilators', 'Frequency of Tiredness' and then reduce each feature by one column
+    5.2 Feature Engineering
+    - Create a new feature "Avg Weight" to replace "Last Weight" and "Current Weight" as the variance in the weight difference is rather constant.
+    - Two new features are created to replace "Start Smoking" year and "Stop Smoking" year as count of years with respect to current year (2024).
+    - Perfom one-hot encoding to the categorical features: 'Gender', 'COPD History', 'Genetic Markers', 'Air Pollution Exposure', 'Taken Bronchodilators', 'Frequency of Tiredness' and then reduce each feature by one column
 
 6. Features that are processed
     Feature | Description | Processed
