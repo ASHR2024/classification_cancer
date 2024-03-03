@@ -144,8 +144,8 @@ The accuracy scores of the train and test set are 0.699 and 0.697 respectively, 
 
 9. Conclusion
 
-SVC is the best choice as it generates the best accuracy without the need for hyperparameter tuning. Furthermore, it has the highest precision and recall for class 1 meaning patients with cancer are correctly identified or classified.
+    SVC is the best choice as it generates the best accuracy without the need for hyperparameter tuning. Furthermore, it has the highest precision and recall for class 1 meaning patients with cancer are correctly identified or classified.
 
-DT can be the next preferred model as the accuracy is slightly lower than SVC. The lower precision for class 1 may also signify a higher false positive (FP) which in the sense of cancer detection, is a safe risk.
+    DT can be the next preferred model as the accuracy is slightly lower than SVC. The lower precision for class 1 may also signify a higher false positive (FP) which in the sense of cancer detection, is a safe risk.
 
-Due to time constraint, the parameters for DT and hyperparameter tuning on SVC are not further explored, which could potentially lead to better model performance.
+    Due to time constraint, the parameters for DT and hyperparameter tuning on SVC are not further explored, which could potentially lead to better model performance.
