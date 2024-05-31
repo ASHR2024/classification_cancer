@@ -1,8 +1,3 @@
-AIAP Batch 16 Technical Assessment\
-Name: Regina Ang Swee Hoon\
-email: angshregina@gmail.com
-
-
 1. Executive Summary
     
     The objective of studying this dataset is to predict the occurence of lung cancer in patients based on several physical and lifestyle attributes.
